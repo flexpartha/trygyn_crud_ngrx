@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3>Add Client</h3>
+        <hr/>
+        <form [formGroup] ="clientForm" (ngSubmit)="addClient()">
+            <div class="mb-3">
+                <label>Client Name</label>
+                <input type="text" class="form-control" formControlName="clientname" placeholder="Enter Client Name">
+                <div class="alert  alert-danger" *ngIf="(clientForm.get('clientname')?.touched || isSubmitted) && clientForm.get('clientname')?.invalid">
+                    Client Name is required.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Enter Email">
+
+                <!-- <div class="alert  alert-danger" *ngIf="(clientForm.get('email')?.touched || isSubmitted) && clientForm.get('email')?.errors">
+                    Email is required.
+                </div>
+                <div class="alert  alert-danger" *ngIf="(clientForm.get('email')?.touched || isSubmitted) && clientForm.get('email')?.invalid">
+                    Please Enter valid email.
+                </div> -->
+                <div class="alert  alert-danger" *ngIf="isSubmitted && f['email'].errors">
+                    <div *ngIf="f['email'].errors['required']">Email is required</div>
+                    <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Phone No.</label>
+                <input type="text" class="form-control" formControlName="phoneNumber" placeholder="Enter Phone Number">
+                <div class="alert  alert-danger" *ngIf="isSubmitted && f['phoneNumber'].errors">
+                    <div *ngIf="f['phoneNumber'].errors['required']">Phone Number is required</div>
+                </div>
+            </div>
+            <div class="my-3">
+                <button type="submit" class="btn btn-primary">Add Client</button>
+            </div>
+        </form>
+</div>

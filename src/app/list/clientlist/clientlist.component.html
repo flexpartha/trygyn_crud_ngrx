@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row rowbottom-space">
+        <div class="col-md-2">
+            <!-- <input type="text" [(ngModel)]="clientnameString" class="form-control" placeholder="Search"> -->
+        </div>
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" (click)="navigaeAddclient()">Add Client</button>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <!-- <th>Id</th> -->
+                <th>Client Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let client of clientList; let i = index">
+                    <!-- <td>{{i + 1}}</td> -->
+                    <td>{{client.clientname}}</td>
+                    <td>{{client.email}}</td>
+                    <td>{{client.phoneNumber}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)="selectedClient(client,i)">Edit</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="deleteclient(client)">Delete</button>
+                    </td>
+                  </tr> 
+                  <tr *ngIf="clientList.length == 0">
+                    <td colspan="5">
+                        <span style="display: flex;flex-direction: row; justify-content: center;">
+                            No Data found!
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
