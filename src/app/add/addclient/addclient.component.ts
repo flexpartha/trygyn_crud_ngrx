@@ -15,7 +15,7 @@ export class AddclientComponent implements OnInit {
 
   clientForm!: FormGroup;
   isSubmitted = false;
-  constructor(private fb:FormBuilder, private router: Router,private store:Store<AppState>){}
+  constructor(private fb:FormBuilder,private store:Store<AppState>){}
 
   ngOnInit(): void {
     this.clientform();
@@ -51,7 +51,6 @@ export class AddclientComponent implements OnInit {
       }
       console.log("Client:::---",client);
       this.store.dispatch(addClient({client}))
-      this.router.navigate(['/clientlist']);
     }
   }
 

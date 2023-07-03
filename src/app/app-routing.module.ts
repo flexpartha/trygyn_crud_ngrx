@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'addclient',
     loadChildren: ()=> import('./add/add.module').then(mod =>mod.AddModule),
   },
+  {
+    path: 'editclient',
+    loadChildren: () => import('./edit/edit.module').then(mod => mod.EditModule)
+  }
 ];
 
 @NgModule({

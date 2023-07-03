@@ -11,9 +11,9 @@
         </div>
     </div>
     <div class="row">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped" *ngIf="(clientList | async) as clientDta">
             <thead>
-                <!-- <th>Id</th> -->
+                <th>Id</th>
                 <th>Client Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
@@ -21,19 +21,19 @@
                 <th></th>
             </thead>
             <tbody>
-                <tr *ngFor = "let client of clientList; let i = index">
-                    <!-- <td>{{i + 1}}</td> -->
+                <tr *ngFor = "let client of clientDta; let i = index">
+                    <td>{{client.id}}</td>
                     <td>{{client.clientname}}</td>
                     <td>{{client.email}}</td>
                     <td>{{client.phoneNumber}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary" (click)="selectedClient(client,i)">Edit</button>
+                        <button type="button" class="btn btn-primary" (click)="selectedClient(client.id)">Edit</button>
                     </td>
                     <td>
-                        <button type="button" class="btn btn-danger" (click)="deleteclient(client)">Delete</button>
+                        <button type="button" class="btn btn-danger" (click)="deleteclient(client.id)">Delete</button>
                     </td>
                   </tr> 
-                  <tr *ngIf="clientList.length == 0">
+                  <tr *ngIf="clientDta.length == 0">
                     <td colspan="5">
                         <span style="display: flex;flex-direction: row; justify-content: center;">
                             No Data found!
@@ -43,4 +43,8 @@
             </tbody>
         </table>
     </div>
+    <div class="row">
+        <lib-counter-lib></lib-counter-lib>
+        <lib-counter-demo></lib-counter-demo>
+      </div>
 </div>
