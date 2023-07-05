@@ -4,6 +4,7 @@ import { getCurrentRoutes } from "../store/router/router.selector";
 import { RouterStateUrl } from "../store/router/custom-serializer";
 
 //THIS SECTION WITHOUT ENTITY ADAPTER
+
 // export const CLIENT_STATE_NAME = 'Clients'
 // const getClientState = createFeatureSelector<clientState>(CLIENT_STATE_NAME);
 

@@ -1,7 +1,7 @@
 import { EntityState, createEntityAdapter } from "@ngrx/entity";
 import { Client } from "../models/client.models";
 
-//this section needs without Entity Adapters
+//THIS SECTION WITHOUT ENTITY ADAPTERS
 
 // export interface clientState {
 //     clientList:Client[];

@@ -3,6 +3,7 @@ import { clientsAdapter, initialState } from "./client.state"
 import { addClient, addClientSuccess, deleteClients, loadClients, loadClientsSuccess, updateClients, updateClientsSuccess } from "./client.action"
 
 // THIS SECTION OF CODE WHEN USE WITHOUT ENTITY ADAPTER
+
 // const _clientReducer = createReducer(
 //     initialState,
 //     on(addClientSuccess, (state, action)=>{
@@ -42,6 +43,7 @@ import { addClient, addClientSuccess, deleteClients, loadClients, loadClientsSuc
 // )
 
 //WITH ENTITY ADAPTER
+
 const _clientReducer = createReducer(
     initialState,
      on(addClientSuccess, (state, action)=>{
