@@ -23,7 +23,9 @@ export const CLIENT_STATE_NAME = 'Clients'
 const getClientState = createFeatureSelector<clientState>(CLIENT_STATE_NAME);
 
 export const getClients = createSelector(getClientState, clientsSelectors.selectAll);
+
 export const getClientEntities = createSelector(getClientState, clientsSelectors.selectEntities)
+
 export const getClientById = createSelector(getClientEntities, getCurrentRoutes,
     (clientList, route:RouterStateUrl) =>{
     return clientList ? clientList[route.params['id']] : null;

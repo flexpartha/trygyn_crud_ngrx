@@ -28,6 +28,9 @@ import { Client } from "../models/client.models";
 //WITH ENTITY ADAPTERS
 
 export interface clientState extends EntityState<Client>{};
+
 export const clientsAdapter = createEntityAdapter<Client>();
+
 export const initialState: clientState = clientsAdapter.getInitialState();
+
 export const clientsSelectors = clientsAdapter.getSelectors();
