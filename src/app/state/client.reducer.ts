@@ -1,6 +1,14 @@
-import { createReducer, on } from "@ngrx/store"
-import { clientsAdapter, initialState } from "./client.state"
-import { addClient, addClientSuccess, deleteClients, loadClients, loadClientsSuccess, updateClients, updateClientsSuccess } from "./client.action"
+import { createReducer, on } from '@ngrx/store';
+import { clientsAdapter, initialState } from './client.state';
+import {
+  addClient,
+  addClientSuccess,
+  deleteClients,
+  loadClients,
+  loadClientsSuccess,
+  updateClients,
+  updateClientsSuccess,
+} from './client.action';
 
 // THIS SECTION OF CODE WHEN USE WITHOUT ENTITY ADAPTER
 
@@ -45,24 +53,24 @@ import { addClient, addClientSuccess, deleteClients, loadClients, loadClientsSuc
 //WITH ENTITY ADAPTER
 
 const _clientReducer = createReducer(
-    initialState,
-     on(addClientSuccess, (state, action)=>{
-        return clientsAdapter.addOne(action.client, state);
-   }),
+  initialState,
+  on(addClientSuccess, (state, action) => {
+    return clientsAdapter.addOne(action.client, state);
+  }),
 
-   on(updateClientsSuccess, (state, action)=>{
-    return clientsAdapter.updateOne(action.client, state)
-   }),
+  on(updateClientsSuccess, (state, action) => {
+    return clientsAdapter.updateOne(action.client, state);
+  }),
 
-   on(deleteClients, (state, {id})=>{
+  on(deleteClients, (state, { id }) => {
     return clientsAdapter.removeOne(id, state);
-   }),
-   
-   on(loadClientsSuccess, (state, action)=>{
-    return clientsAdapter.setAll(action.clients, state);
-   })
-)
+  }),
 
-export function clientReducer(state:any, action:any){
-    return _clientReducer(state, action)
+  on(loadClientsSuccess, (state, action) => {
+    return clientsAdapter.setAll(action.clients, state);
+  })
+);
+
+export function clientReducer(state: any, action: any) {
+  return _clientReducer(state, action);
 }

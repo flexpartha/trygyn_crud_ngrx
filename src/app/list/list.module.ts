@@ -16,8 +16,8 @@ const routes:Routes = [
   ],
   imports: [
     CommonModule,
-    CounterLibModule,
     RouterModule.forChild(routes),
+    CounterLibModule
   ]
 })
 export class ListModule { }

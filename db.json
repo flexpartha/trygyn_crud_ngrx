@@ -1,33 +1,21 @@
 {
   "clients": [
     {
-      "id": 1,
-      "clientname": "DELLAWR",
-      "email": "dellindia@services.co.in",
-      "phoneNumber": "44"
-    },
-    {
-      "id": 2,
-      "clientname": "HCL INDIA67",
+      "id": "a952",
+      "clientname": "DELL",
       "email": "partha.chakra2@gmail.com",
-      "phoneNumber": "45"
+      "phoneNumber": "23456"
     },
     {
-      "id": 4,
-      "clientname": "ACCER LAPTOP india",
-      "email": "accer@gmail.com",
-      "phoneNumber": "10900"
-    },
-    {
-      "clientname": "LENOVOINDIA",
-      "email": "lenovoservices@gmail.com",
-      "phoneNumber": "4567890",
-      "id": 5
+      "id": "d13f",
+      "clientname": "SHELL INFO",
+      "email": "partha.chakra2@gmail.com",
+      "phoneNumber": "6789"
     }
   ],
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "body": "some comment",
       "postId": 1
     }

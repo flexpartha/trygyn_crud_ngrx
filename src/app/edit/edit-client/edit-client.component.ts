@@ -1,71 +1,70 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Client } from 'src/app/models/client.models';
-import { loadClients, updateClients } from 'src/app/state/client.action';
-import { getClientById } from 'src/app/state/client.selector';
-import { AppState } from 'src/app/store/app.state';
+import { ClientFacadeService } from '../../services/client-facade.service';
 
 @Component({
   selector: 'app-edit-client',
   templateUrl: './edit-client.component.html',
-  styleUrls: ['./edit-client.component.scss']
+  styleUrls: ['./edit-client.component.scss'],
 })
 export class EditClientComponent implements OnInit, OnDestroy {
   editForm!: FormGroup;
   isSubmitted = false;
   clientList: Client[] = [];
   client!: Client;
-  refreshClnt:any;
-  clientId:any;
-  clientSubscription: Subscription =new Subscription();
+  refreshClnt: any;
+  clientId: any;
+  clientSubscription: Subscription = new Subscription();
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private readonly facade: ClientFacadeService) {}
 
   ngOnInit(): void {
     this.createUpdateForm();
-    this.clientSubscription = this.store.select(getClientById).subscribe((clientres)=>{
-      if(clientres){
-        this.client = clientres;
-        this.clientId = clientres.id;
-        this.editForm.patchValue({
-          clientname: clientres.clientname,
-          email: clientres.email,
-          phoneNumber: clientres.phoneNumber
-        })
-      }
-    });
-    //this.store.dispatch(loadClients());
+    this.clientSubscription = this.facade
+      .getSigleClient()
+      .subscribe((clientres) => {
+        if (clientres) {
+          this.client = clientres;
+          this.clientId = clientres.id;
+          this.editForm.patchValue({
+            clientname: clientres.clientname,
+            email: clientres.email,
+            phoneNumber: clientres.phoneNumber,
+          });
+        }
+      });
   }
 
-  createUpdateForm(){
+  createUpdateForm() {
     this.editForm = new FormGroup({
       clientname: new FormControl(null),
       email: new FormControl(null),
-      phoneNumber: new FormControl(null)
-    })
+      phoneNumber: new FormControl(null),
+    });
   }
-  
-  updateClient(){
+
+  updateClient() {
     const clientname = this.editForm.value.clientname;
     const email = this.editForm.value.email;
     const phoneNumber = this.editForm.value.phoneNumber;
 
-    const client:Client = {
+    const client: Client = {
       id: this.clientId,
       clientname,
       email,
-      phoneNumber
+      phoneNumber,
     };
-    this.store.dispatch(updateClients({client}));
+    this.facade.updateClient(client);
   }
 
-  get f() { return this.editForm.controls; };
+  get f() {
+    return this.editForm.controls;
+  }
 
   ngOnDestroy(): void {
-    if(this.clientSubscription){
+    if (this.clientSubscription) {
       this.clientSubscription.unsubscribe();
     }
   }
