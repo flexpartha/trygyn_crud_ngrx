@@ -16,13 +16,11 @@ const routes:Routes = [
 
 
 @NgModule({
-  declarations: [
-    EditClientComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(routes)
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        RouterModule.forChild(routes),
+        EditClientComponent
+    ]
 })
 export class EditModule { }

@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Client } from 'src/app/models/client.models';
 import { ClientFacadeService } from 'src/app/services/client-facade.service';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-addclient',
-  templateUrl: './addclient.component.html',
-  styleUrls: ['./addclient.component.scss'],
+    selector: 'app-addclient',
+    templateUrl: './addclient.component.html',
+    styleUrls: ['./addclient.component.scss'],
+    standalone: true,
+    imports: [ReactiveFormsModule, NgIf],
 })
 export class AddclientComponent implements OnInit {
   clientForm!: FormGroup;

@@ -1,13 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Client } from 'src/app/models/client.models';
 import { ClientFacadeService } from '../../services/client-facade.service';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-edit-client',
-  templateUrl: './edit-client.component.html',
-  styleUrls: ['./edit-client.component.scss'],
+    selector: 'app-edit-client',
+    templateUrl: './edit-client.component.html',
+    styleUrls: ['./edit-client.component.scss'],
+    standalone: true,
+    imports: [ReactiveFormsModule, NgIf],
 })
 export class EditClientComponent implements OnInit, OnDestroy {
   editForm!: FormGroup;

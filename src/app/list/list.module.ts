@@ -12,11 +12,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ClientlistComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    //CounterLibModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        ClientlistComponent,
+    ],
 })
 export class ListModule {}

@@ -5,11 +5,19 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.state';
 import { getClientById } from '../state/client.selector';
 import { ClientFacadeService } from '../services/client-facade.service';
+import { RouterLink } from '@angular/router';
+import { NgIf, AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-single-client',
-  templateUrl: './single-client.component.html',
-  styleUrls: ['./single-client.component.scss'],
+    selector: 'app-single-client',
+    templateUrl: './single-client.component.html',
+    styleUrls: ['./single-client.component.scss'],
+    standalone: true,
+    imports: [
+        NgIf,
+        RouterLink,
+        AsyncPipe,
+    ],
 })
 export class SingleClientComponent implements OnInit {
   singleClient$!: Observable<Client>;
