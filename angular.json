@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "trygyn_crud_ngrx:build:production"
+              "buildTarget": "trygyn_crud_ngrx:build:production"
             },
             "development": {
-              "browserTarget": "trygyn_crud_ngrx:build:development"
+              "buildTarget": "trygyn_crud_ngrx:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "trygyn_crud_ngrx:build"
+            "buildTarget": "trygyn_crud_ngrx:build"
           }
         },
         "test": {
