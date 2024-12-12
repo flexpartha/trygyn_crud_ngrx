@@ -2,22 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientlistComponent } from './clientlist/clientlist.component';
 import { RouterModule, Routes } from '@angular/router';
-import { CounterLibModule } from 'counter-lib';
+//import { CounterLibModule } from 'counter-lib';
 
-const routes:Routes = [
+const routes: Routes = [
   {
-    path: '', component:ClientlistComponent
-  }
-]
+    path: '',
+    component: ClientlistComponent,
+  },
+];
 
 @NgModule({
-  declarations: [
-    ClientlistComponent
-  ],
+  declarations: [ClientlistComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    CounterLibModule
-  ]
+    //CounterLibModule
+  ],
 })
-export class ListModule { }
+export class ListModule {}
