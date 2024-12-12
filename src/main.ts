@@ -9,9 +9,16 @@ import { ClientEffects } from './app/state/client.effects';
 import { provideEffects } from '@ngrx/effects';
 import { AppReducer } from './app/store/app.state';
 import { provideStore } from '@ngrx/store';
-import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
+import {
+  withInterceptorsFromDi,
+  provideHttpClient,
+} from '@angular/common/http';
 import { AppRoutingModule } from './app/app-routing.module';
-import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  bootstrapApplication,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -23,5 +30,6 @@ bootstrapApplication(AppComponent, {
       serializer: CustomSerializer,
     }),
     provideStoreDevtools(),
+    provideClientHydration(),
   ],
 }).catch((err) => console.error(err));
