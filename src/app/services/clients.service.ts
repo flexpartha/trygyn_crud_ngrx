@@ -22,6 +22,7 @@ export class ClientsService {
       .post<Client>('http://localhost:3000/clients', client)
       .pipe(
         map((res: Client) => {
+          console.log(res);
           return res;
         })
       );

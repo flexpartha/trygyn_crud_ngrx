@@ -125,7 +125,7 @@ export class ClientEffects {
     return this.action$.pipe(
       ofType(ROUTER_NAVIGATION),
       filter((r: RouterNavigatedAction) => {
-        return r.payload.routerState.url.startsWith('/editclient');
+        return r.payload.routerState.url.startsWith('/clientlist/view');
       }),
       map((r: any) => {
         return r.payload.routerState['params']['id'];

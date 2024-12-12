@@ -29,7 +29,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let client of clientData; let i = index">
-          <td>{{ client.id }}</td>
+          <td>
+            <a [routerLink]="['view', client.id]">{{ client.id }}</a>
+          </td>
           <td>{{ client.clientname }}</td>
           <td>{{ client.email }}</td>
           <td>{{ client.phoneNumber }}</td>

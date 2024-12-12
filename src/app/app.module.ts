@@ -12,9 +12,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { ClientEffects } from './state/client.effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CustomSerializer } from './store/router/custom-serializer';
+import { SingleClientComponent } from './single-client/single-client.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SingleClientComponent
   ],
   imports: [
     BrowserModule,
