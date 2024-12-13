@@ -1,20 +1,16 @@
 <div class="row">
   <div
-    class="col-md-12"
-    style="
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    "
-  >
+    class="col-md-12 d-flex justify-content-center align-items-center flex-column"
+    >
     <h3>View Details</h3>
-    <div *ngIf="singleClient$ | async as clientData">
-      <p>Id: {{ clientData.id }}</p>
-      <p>Client Name: {{ clientData.clientname }}</p>
-      <p>Client Email: {{ clientData.email }}</p>
-      <p>Client Phone: {{ clientData.phoneNumber }}</p>
-    </div>
+    @if (singleClient$ | async; as clientData) {
+      <div>
+        <p>Id: {{ clientData.id }}</p>
+        <p>Client Name: {{ clientData.clientname }}</p>
+        <p>Client Email: {{ clientData.email }}</p>
+        <p>Client Phone: {{ clientData.phoneNumber }}</p>
+      </div>
+    }
     <a [routerLink]="['/clientlist']">Back to Home</a>
   </div>
 </div>

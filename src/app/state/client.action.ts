@@ -14,6 +14,8 @@ export const DELETE_CLIENT_SUCCESS = '[CLIENT page] delete client success';
 export const LOAD_CLIENTS = '[CLIENT page] load client';
 export const LOAD_CLIENT_SUCCESS = '[CLIENT page] load client success';
 
+export const LOAD_CLIENT_DATA = '[CLIENT page] load client data';
+
 export const addClient = createAction(
   ADD_CLIENT_ACTION,
   props<{ client: Client }>()

@@ -9,70 +9,75 @@
         type="button"
         class="btn btn-primary"
         (click)="navigaeAddclient()"
-      >
+        >
         Add Client
       </button>
     </div>
   </div>
   <div class="row">
-    <table
-      class="table table-bordered table-striped"
-      *ngIf="clientList | async as clientData"
-    >
-      <thead>
-        <th>Id</th>
-        <th>Client Name</th>
-        <th>Email</th>
-        <th>Phone Number</th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let client of clientData; let i = index">
-          <td>
-            <a [routerLink]="['view', client.id]">{{ client.id }}</a>
-          </td>
-          <td>{{ client.clientname }}</td>
-          <td>{{ client.email }}</td>
-          <td>{{ client.phoneNumber }}</td>
-          <td>
-            <button
-              type="button"
-              class="btn btn-primary"
-              (click)="selectedClient(client.id)"
-            >
-              Edit
-            </button>
-          </td>
-          <td>
-            <button
-              type="button"
-              class="btn btn-danger"
-              (click)="deleteclient(client.id)"
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
-        <tr *ngIf="clientData.length == 0">
-          <td colspan="5">
-            <span
+    @if (clientList | async; as clientData) {
+      <table
+        class="table table-bordered table-striped"
+        >
+        <thead>
+          <th>Id</th>
+          <th>Client Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          @for (client of clientData; track client; let i = $index) {
+            <tr>
+              <td>
+                <a [routerLink]="['view', client.id]">{{ client.id }}</a>
+              </td>
+              <td>{{ client.clientname }}</td>
+              <td>{{ client.email }}</td>
+              <td>{{ client.phoneNumber }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="selectedClient(client.id)"
+                  >
+                  Edit
+                </button>
+              </td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="deleteclient(client.id)"
+                  >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          }
+          @if (clientData.length == 0) {
+            <tr>
+              <td colspan="5">
+                <span
               style="
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
               "
-            >
-              No Data found!
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                  >
+                  No Data found!
+                </span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
   </div>
   <!-- <div class="row">
-        <lib-counter-lib></lib-counter-lib>
-        <lib-counter-demo></lib-counter-demo>
-        <lib-randombackground></lib-randombackground>
-      </div> -->
+  <lib-counter-lib></lib-counter-lib>
+  <lib-counter-demo></lib-counter-demo>
+  <lib-randombackground></lib-randombackground>
+</div> -->
 </div>

@@ -69,6 +69,9 @@ const _clientReducer = createReducer(
   on(loadClientsSuccess, (state, action) => {
     return clientsAdapter.setAll(action.clients, state);
   })
+  // on(loadClientData, (state, action) => {
+  //   return clientsAdapter.setAll(action.singleClientId, state);
+  // })
 );
 
 export function clientReducer(state: any, action: any) {

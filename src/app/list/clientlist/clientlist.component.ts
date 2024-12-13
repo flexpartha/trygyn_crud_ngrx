@@ -3,18 +3,16 @@ import { Router, RouterLink } from '@angular/router';
 import { Client } from 'src/app/models/client.models';
 import { Observable } from 'rxjs';
 import { ClientFacadeService } from 'src/app/services/client-facade.service';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 @Component({
     selector: 'app-clientlist',
     templateUrl: './clientlist.component.html',
     styleUrls: ['./clientlist.component.scss'],
     standalone: true,
     imports: [
-        NgIf,
-        NgFor,
-        RouterLink,
-        AsyncPipe,
-    ],
+    RouterLink,
+    AsyncPipe
+],
 })
 export class ClientlistComponent implements OnInit {
   clientList!: Observable<Client[]>;
